@@ -62,9 +62,23 @@ func main() {
 
 	sort.Strings(arrOfStrKeys)
 
-	fmt.Println(arrOfStr)
+	// fmt.Println(arrOfStrKeys)
+
+	fmt.Println("#### Sorting By Keys ####")
+	for _, k := range arrOfStrKeys {
+		fmt.Println(k, stringCounter[k])
+	}
+
+	// sorting by the values
+
+	fmt.Println("#### Sorting By Values ####")
+
+	sort.SliceStable(arrOfStrKeys, func(i, j int) bool {
+		return stringCounter[arrOfStrKeys[i]] > stringCounter[arrOfStrKeys[j]]
+	})
 
 	for _, k := range arrOfStrKeys {
 		fmt.Println(k, stringCounter[k])
 	}
+
 }
